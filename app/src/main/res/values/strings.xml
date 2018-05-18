@@ -1,0 +1,43 @@
+<resources>
+	<string name="app_name">Filter search results</string>
+
+	//Search Filter Type
+	<string name="search_filter_type">Type</string>
+
+	<string name="search_filter_type_any">Any Type</string>
+	<string name="search_filter_type_archives">Archives</string>
+	<string name="search_filter_type_audio">Audio</string>
+	<string name="search_filter_type_documents">Documents</string>
+	<string name="search_filter_type_executables">Executables</string>
+	<string name="search_filter_type_folders">Folders</string>
+	<string name="search_filter_type_images">Images</string>
+	<string name="search_filter_type_pdf">PDF</string>
+	<string name="search_filter_type_video">Video</string>
+
+	//Search Filter Size
+	<string name="search_filter_size">File size</string>
+
+	<string name="search_filter_size_any">Any Size</string>
+	<string name="search_filter_size_tiny">0-1MB</string>
+	<string name="search_filter_size_small">1-10MB</string>
+	<string name="search_filter_size_medium">10-100MB</string>
+	<string name="search_filter_size_big">100MB-1GB</string>
+	<string name="search_filter_size_huge">1GB</string>
+
+	//Search Filter Date Modified
+	<string name="search_filter_date">File date modified</string>
+
+	<string name="search_filter_date_modified_any">Any Time</string>
+	<string name="search_filter_date_modified_day">Last 24 hours</string>
+	<string name="search_filter_date_modified_week">Last week</string>
+	<string name="search_filter_date_modified_month">Last month</string>
+	<string name="search_filter_date_modified_quarter">Last 3 months</string>
+	<string name="search_filter_date_modified_year">Last year</string>
+	<string name="search_filter_date_modified_more_year">Older than last year</string>
+
+	//Search Filter Owner
+	<string name="search_filter_owner">Owner</string>
+
+	<string name="search_filter_owner_any">Anyone</string>
+	<string name="search_filter_owner_me">Me</string>
+</resources>
