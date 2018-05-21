@@ -11,6 +11,8 @@
 		android:layout_height="wrap_content"
 		android:layout_marginEnd="8dp"
 		android:layout_marginStart="8dp"
+		android:drawableEnd="@drawable/search_filter_item_current"
+		android:drawablePadding="10dp"
 		android:duplicateParentState="true"
 		android:paddingBottom="10dp"
 		android:paddingTop="10dp"
