@@ -7,7 +7,7 @@ import android.widget.LinearLayout
 
 class SearchFilterItemLayout : LinearLayout {
 
-	var selectedState = false
+	var currentState = false
 		set(value) {
 			field = value
 			refreshDrawableState()
@@ -19,14 +19,14 @@ class SearchFilterItemLayout : LinearLayout {
 
 	override fun onCreateDrawableState(extraSpace: Int): IntArray {
 		val state = super.onCreateDrawableState(extraSpace + 1)
-		if (selectedState) {
-			View.mergeDrawableStates(state, STATE_SELECTED)
+		if (currentState) {
+			View.mergeDrawableStates(state, STATE_CURRENT)
 		}
 		return state
 	}
 
 	companion object {
 
-		private val STATE_SELECTED = intArrayOf(R.attr.selected_item)
+		private val STATE_CURRENT = intArrayOf(R.attr.state_current)
 	}
 }

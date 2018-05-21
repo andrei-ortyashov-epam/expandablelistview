@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<com.example.myexpandablelist.SearchFilterItemLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
-	android:layout_height="wrap_content">
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
 
 	<TextView
 		android:id="@+id/groupTitle"
@@ -14,10 +14,7 @@
 		android:paddingBottom="10dp"
 		android:paddingTop="10dp"
 		android:text="Test"
-		android:textColor="@color/gray_text"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent"/>
+		android:textColor="@color/gray_text"/>
 
 	<TextView
 		android:id="@+id/selected"
@@ -25,30 +22,12 @@
 		android:layout_height="wrap_content"
 		android:layout_marginEnd="8dp"
 		android:layout_marginStart="8dp"
-		android:drawableEnd="@drawable/ic_expand_list"
+		android:drawableEnd="@drawable/search_filter_group_current"
 		android:drawablePadding="10dp"
+		android:duplicateParentState="true"
 		android:paddingBottom="10dp"
 		android:paddingTop="10dp"
 		android:text="Test"
-		android:textColor="@color/blue_text"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/groupTitle"/>
+		android:textColor="@color/search_filter_group_text_color"/>
 
-	<TextView
-		android:id="@+id/selectedInactive"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginEnd="8dp"
-		android:layout_marginStart="8dp"
-		android:drawableEnd="@drawable/ic_expand_list_inactive"
-		android:drawablePadding="10dp"
-		android:paddingBottom="10dp"
-		android:paddingTop="10dp"
-		android:text="Test"
-		android:textColor="@color/disable_blue_text"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/selected"/>
-
-</android.support.constraint.ConstraintLayout>
+</com.example.myexpandablelist.SearchFilterItemLayout>

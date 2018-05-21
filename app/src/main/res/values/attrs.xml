@@ -2,7 +2,7 @@
 <resources>
 
 	<declare-styleable name="StateSearchFilter">
-		<attr name="selected_item" format="boolean"/>
+		<attr name="state_current" format="boolean"/>
 	</declare-styleable>
 
 </resources>

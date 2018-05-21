@@ -20,7 +20,7 @@ class SearchFiltersListAdapter(
 
 	override fun getGroupView(listPosition: Int, isExpanded: Boolean, convertView: View?, parent: ViewGroup): View {
 		val layoutInflater = this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-		val view = layoutInflater.inflate(R.layout.filter_list_group, null)
+		val view = layoutInflater.inflate(R.layout.filter_list_group, null) as SearchFilterItemLayout
 
 		//set group title
 		(view.findViewById(R.id.groupTitle) as TextView).apply {
@@ -29,25 +29,21 @@ class SearchFiltersListAdapter(
 
 		//show current filter from group
 		val currentFilter = view.findViewById(R.id.selected) as TextView
-		val currentFilterInactive = view.findViewById(R.id.selectedInactive) as TextView
 		if (isExpanded) {
 			currentFilter.visibility = View.GONE
-			currentFilterInactive.visibility = View.GONE
 		} else {
-			val nameFilter = getChild(listPosition, getCurrentFilterIndex(listPosition)) as String
-			if (searchFilter.type == SelectedSearchType.FOLDERS) {
-				when (FilterGroup.getByIndex(listPosition)) {
-					FilterGroup.SIZE, FilterGroup.DATE -> {
-						currentFilter.visibility = View.GONE
-						currentFilterInactive.text = nameFilter
-						currentFilterInactive.visibility = View.VISIBLE
-						return view
-					}
-				}
+			currentFilter.apply {
+				visibility = View.VISIBLE
+				text = getChild(listPosition, getCurrentFilterIndex(listPosition)) as String
 			}
-			currentFilter.text = nameFilter
-			currentFilter.visibility = View.VISIBLE
-			currentFilterInactive.visibility = View.GONE
+			view.currentState = if (searchFilter.type == SelectedSearchType.FOLDERS) {
+				when (FilterGroup.getByIndex(listPosition)) {
+					FilterGroup.SIZE, FilterGroup.DATE -> false
+					else -> true
+				}
+			} else {
+				true
+			}
 		}
 		return view
 	}
@@ -60,7 +56,7 @@ class SearchFiltersListAdapter(
 	override fun getChildView(listPosition: Int, expandedListPosition: Int, isLastChild: Boolean, convertView: View?, parent: ViewGroup): View {
 		val layoutInflater = this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 		val view = layoutInflater.inflate(R.layout.filter_list_item, null) as SearchFilterItemLayout
-		view.selectedState = getCurrentFilterIndex(listPosition) == expandedListPosition
+		view.currentState = getCurrentFilterIndex(listPosition) == expandedListPosition
 		(view.findViewById(R.id.item) as TextView).apply {
 			text = getChild(listPosition, expandedListPosition) as String
 		}
