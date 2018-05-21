@@ -59,19 +59,10 @@ class SearchFiltersListAdapter(
 
 	override fun getChildView(listPosition: Int, expandedListPosition: Int, isLastChild: Boolean, convertView: View?, parent: ViewGroup): View {
 		val layoutInflater = this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-		val view = layoutInflater.inflate(R.layout.filter_list_item, null)
-		val expandedListText = getChild(listPosition, expandedListPosition) as String
-		val item = view.findViewById(R.id.item) as TextView
-		val selected = view.findViewById(R.id.selected) as TextView
-		val currentFilterIndex = getCurrentFilterIndex(listPosition)
-		if (currentFilterIndex == expandedListPosition) {
-			item.visibility = View.GONE
-			selected.text = expandedListText
-			selected.visibility = View.VISIBLE
-		} else {
-			item.text = expandedListText
-			item.visibility = View.VISIBLE
-			selected.visibility = View.GONE
+		val view = layoutInflater.inflate(R.layout.filter_list_item, null) as SearchFilterItemLayout
+		view.selectedState = getCurrentFilterIndex(listPosition) == expandedListPosition
+		(view.findViewById(R.id.item) as TextView).apply {
+			text = getChild(listPosition, expandedListPosition) as String
 		}
 		return view
 	}
