@@ -19,4 +19,11 @@
 		android:text="Test"
 		android:textColor="@color/search_filter_item_text_color"/>
 
+	<View
+		android:id="@+id/bottom_divider"
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:layout_alignParentBottom="true"
+		android:background="@color/list_divider"/>
+
 </com.example.myexpandablelist.SearchFilterItemLayout>

@@ -60,6 +60,10 @@ class SearchFiltersListAdapter(
 		(view.findViewById(R.id.item) as TextView).apply {
 			text = getChild(listPosition, expandedListPosition) as String
 		}
+		//show divider for the last item
+		(view.findViewById(R.id.bottom_divider) as View).apply {
+			visibility = if (isLastFilter(listPosition, expandedListPosition)) View.VISIBLE else View.INVISIBLE
+		}
 		return view
 	}
 
@@ -70,6 +74,16 @@ class SearchFiltersListAdapter(
 				FilterGroup.DATE -> SelectedSearchDateModified.values().asList().indexOf(searchFilter.dateModified)
 				FilterGroup.OWNER -> SelectedSearchOwner.values().asList().indexOf(searchFilter.owner)
 			}
+
+	private fun isLastFilter(listPosition: Int, expandedListPosition: Int): Boolean {
+		val size = when (FilterGroup.getByIndex(listPosition)) {
+			FilterGroup.TYPE -> SelectedSearchType.values().size
+			FilterGroup.SIZE -> SelectedSearchSize.values().size
+			FilterGroup.DATE -> SelectedSearchDateModified.values().size
+			FilterGroup.OWNER -> SelectedSearchOwner.values().size
+		}
+		return size - 1 == expandedListPosition
+	}
 
 	override fun getChildrenCount(listPosition: Int): Int = FilterGroup.filters[FilterGroup.getNameByIndex(listPosition)]!!.size
 
